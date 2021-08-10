@@ -1,0 +1,18 @@
+import random
+randno=random.randint(0,100)
+n=int(input("Enter your guess"))
+c=0
+while(randno!=n):
+    c+=1
+    if randno>n:
+        print('Guess Higher no. please.')
+    elif randno<n:
+        print('Guess Lower no. please')
+    n=int(input("Enter your guess"))
+print(f'Congratulations!! You have guessed correct answer after {c} times')
+with open('hiscore.text') as f:
+    hiscoreStr= str(f.read())
+if int(hiscoreStr)>c:
+    with open('hiscore.text','w') as f:
+        f.write(str(c))
+        
